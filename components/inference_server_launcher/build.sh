@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-IMAGE=<inference-server-launcher-image>
+IMAGE=<inference-server-launcher>
 
 docker build -t $IMAGE .
-docker push $IMAGE
+docker push zdou001/only_tests:$IMAGE

@@ -24,7 +24,7 @@ from kubernetes import client as k8s_client
 def PreprocessOp(name, input_dir, output_dir):
     return dsl.ContainerOp(
         name=name,
-        image='<preprocess-image>',
+        image='zdou001/only_tests:preprocess-image',
         arguments=[
             '--input_dir', input_dir,
             '--output_dir', output_dir,
@@ -36,7 +36,7 @@ def PreprocessOp(name, input_dir, output_dir):
 def TrainOp(name, input_dir, output_dir, model_name, model_version, epochs):
     return dsl.ContainerOp(
         name=name,
-        image='<train-image>',
+        image='zdou001/only_tests:train-image',
         arguments=[
             '--input_dir', input_dir,
             '--output_dir', output_dir,
@@ -51,7 +51,7 @@ def TrainOp(name, input_dir, output_dir, model_name, model_version, epochs):
 def InferenceServerLauncherOp(name, input_dir, trtserver_name):
     return dsl.ContainerOp(
         name=name,
-        image='<inference-server-launcher-image>',
+        image='zdou001/only_tests:inference-server-launcher-image',
         arguments=[
             '--trtserver_name', trtserver_name,
             '--model_path', input_dir,
@@ -63,7 +63,7 @@ def InferenceServerLauncherOp(name, input_dir, trtserver_name):
 def WebappLauncherOp(name, trtserver_name, model_name, model_version, webapp_prefix, webapp_port):
     return dsl.ContainerOp(
         name=name,
-        image='<webapp-launcher-image>',
+        image='zdou001/only_tests:webapp-launcher-image',
         arguments=[
             '--workflow_name', '{{workflow.name}}',
             '--trtserver_name', trtserver_name,

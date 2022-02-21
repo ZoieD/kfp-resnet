@@ -23,4 +23,4 @@ rm -rf $base
 
 # Build & push webapp image
 docker build -t $IMAGE .
-docker push $IMAGE
+docker push zdou001/only_tests:$IMAGE

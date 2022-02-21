@@ -40,7 +40,7 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: <webapp-image>
+        image: zdou001/only_tests:webapp-image
         imagePullPolicy: Always
         env:
         - name: TRTSERVER_HOST
